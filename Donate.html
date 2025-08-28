@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Jeeva</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header (reuse from your other pages) -->
+  <header>
+    <div class="container header-container">
+     <img src="Jeeva Logo.jpg" alt="Jeeva Logo" width="120" height="100">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown">
+            <a href="about us.html">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="our vision.html">Our Vision & Mission</a></li>
+              <li><a href="our values.html">Our Values</a></li>
+              <li><a href="our team.html">Our Team</a></li>
+              <li><a href="our Partners.html">Our Partners</a></li>
+            </ul>
+          </li>
+          <li><a href="Our Work.html">Our Work</a></li>
+          <li><a href="get involved.html">Get Involved</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" >Contact</a></li>
+        </ul>
+      </nav>
+       <a href="Donate.html" class="donate-btn">Donate</a>
+    </div>
+  </header>
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donate to Jeeva</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- QR Code generator (lightweight, no deps) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-M1n5vGXp8wZ8q9gS3z8pH8WZ8nD7cJ5eQ1dYwq8cD4GQ4lG3E3m2r0xk+9b3vJmX+Q2D0m2v8fZ5b2u+1b8nMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body class="bg-gray-50 text-white-900">
+  <header class="max-w-3xl mx-auto px-4 pt-10 pb-6"></header>
+  <main class="max-w-3xl mx-auto px-4 pb-20">
+    <!-- Card -->
+    <section class="bg-white rounded-2xl shadow p-6 space-y-6">
+      <!-- Amount selector -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Choose an amount</label>
+        <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button type="button" data-amt="200" class="amt-btn px-4 py-3 rounded-xl border bg-gray-50 hover:bg-gray-100">₹200</button>
+          <button type="button" data-amt="500" class="amt-btn px-4 py-3 rounded-xl border bg-gray-50 hover:bg-gray-100">₹500</button>
+          <button type="button" data-amt="1000" class="amt-btn px-4 py-3 rounded-xl border bg-gray-50 hover:bg-gray-100">₹1,000</button>
+          <button type="button" data-amt="2500" class="amt-btn px-4 py-3 rounded-xl border bg-gray-50 hover:bg-gray-100">₹2,500</button>
+        </div>
+        <div class="mt-4 flex items-center gap-3">
+          <label for="custom-amount" class="text-sm text-gray-600">Or enter custom:</label>
+          <div class="relative">
+            <span class="absolute left-3 top-2.5 text-gray-500">₹</span>
+            <input id="custom-amount" type="number" min="1" step="1" class="pl-7 pr-3 py-2 rounded-xl border w-40" placeholder="Amount" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Donor info -->
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-sm font-medium">Full name</label>
+          <input id="donor-name" type="text" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="Your name" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input id="donor-email" type="email" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Phone</label>
+          <input id="donor-phone" type="tel" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="10-digit" />
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <input id="consent" type="checkbox" class="mt-1" />
+        <label for="consent" class="text-sm text-gray-600">I consent to be contacted for receipts and updates.</label>
+      </div>
+
+      <!-- Payment methods -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- UPI / QR -->
+        <div class="border rounded-2xl p-4">
+          <h2 class="text-lg font-semibold">Donate via UPI</h2>
+          <p class="text-sm text-gray-600 mt-1">Scan the QR with any UPI app (GPay, PhonePe, Paytm, BHIM) or tap the button below.</p>
+
+          <div class="mt-4">
+            <label class="block text-sm font-medium">UPI ID (VPA)</label>
+            <!-- TODO: Replace with your real UPI ID (VPA) -->
+            <input id="upi-id" type="text" class="mt-1 w-full rounded-xl border px-3 py-2" value="yourname@okicici" />
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm font-medium">Purpose / Note</label>
+            <input id="upi-note" type="text" class="mt-1 w-full rounded-xl border px-3 py-2" value="Donation to Jeeva" />
+          </div>
+
+          <div class="mt-4 flex flex-col items-center gap-3">
+            <div id="qrcode" class="bg-white p-3 rounded-xl border"></div>
+            <a id="upi-intent" href="#" class="inline-flex items-center justify-center rounded-xl border px-4 py-2 hover:bg-gray-50">Open in UPI app</a>
+            <p class="text-xs text-gray-500">If the QR looks small, increase the amount and click “Refresh QR”.</p>
+            <button id="refresh-qr" class="text-sm underline">Refresh QR</button>
+          </div>
+        </div>
+
+        <!-- Razorpay (optional) -->
+        <div class="border rounded-2xl p-4">
+          <h2 class="text-lg font-semibold">Donate via Card / NetBanking / UPI (Razorpay)</h2>
+          <p class="text-sm text-gray-600 mt-1">Works with Indian cards, UPI, wallets and NetBanking. Requires a free Razorpay account.</p>
+
+          <div class="mt-4">
+            <label class="block text-sm font-medium">Razorpay Key ID</label>
+            <!-- TODO: Replace with your live key from Razorpay Dashboard -->
+            <input id="rzp-key" type="text" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="rzp_live_XXXXXXXXXXXXXXXXXX" />
+          </div>
+
+          <button id="rzp-donate" class="mt-4 w-full rounded-xl bg-gray-900 text-white px-4 py-3 hover:bg-black">Donate Securely</button>
+
+          <p class="text-xs text-gray-500 mt-2">Production tip: Create an <strong>Order</strong> on your server and pass its <code>order_id</code> to Checkout for best reliability.</p>
+        </div>
+      </div>
+
+      <!-- Bank transfer fallback -->
+      <details class="mt-4 border rounded-2xl p-4">
+        <summary class="cursor-pointer font-medium">Bank transfer (NEFT / RTGS / IMPS)</summary>
+        <div class="mt-3 grid sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div><span class="font-semibold">Account name:</span> Jeeva</div>
+            <div><span class="font-semibold">Account no.:</span>520101253884892</div>
+            <div><span class="font-semibold">IFSC:</span> UBIN0911739</div>
+            <div><span class="font-semibold">Bank:</span> Union Bank of India, Sanjaynagar, Bengaluru</div>
+          </div>
+          <div>
+            <div><span class="font-semibold">UPI ID:</span> QR1868337508-4892@unionbankofindia</div>
+            <div><span class="font-semibold">PAN:</span> AABTJ6854C</div>
+            <div><span class="font-semibold">Email for receipt:</span> jeeva@jeeva.org.in</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Receipt note -->
+      <p class="text-xs text-gray-500">For receipts (80G/CSR, if applicable), please email your transaction details to <a href="mailto:donate@example.org" class="underline">jeeva@jeeva.org.in</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    // ---- Helpers ----
+    const amtBtns = Array.from(document.querySelectorAll('.amt-btn'));
+    const customAmtInput = document.getElementById('custom-amount');
+    const donorName = document.getElementById('donor-name');
+    const donorEmail = document.getElementById('donor-email');
+    const donorPhone = document.getElementById('donor-phone');
+    const consent = document.getElementById('consent');
+
+    const upiIdInput = document.getElementById('upi-id');
+    const upiNoteInput = document.getElementById('upi-note');
+    const qrContainer = document.getElementById('qrcode');
+    const upiIntentLink = document.getElementById('upi-intent');
+    const refreshQrBtn = document.getElementById('refresh-qr');
+
+    const rzpKeyInput = document.getElementById('rzp-key');
+    const rzpDonateBtn = document.getElementById('rzp-donate');
+
+    let selectedAmount = 500; // default
+
+    function formatAmount(amt) {
+      if (!amt || isNaN(amt)) return 0;
+      return Math.max(1, Math.round(Number(amt)));
+    }
+
+    function getAmount() {
+      const custom = formatAmount(customAmtInput.value);
+      return custom > 0 ? custom : selectedAmount;
+    }
+
+    function setActiveAmount(btn) {
+      amtBtns.forEach(b => b.classList.remove('bg-gray-900', 'text-white'));
+      amtBtns.forEach(b => b.classList.add('bg-gray-50', 'text-gray-900'));
+      if (btn) {
+        btn.classList.remove('bg-gray-50', 'text-gray-900');
+        btn.classList.add('bg-gray-900', 'text-white');
+        selectedAmount = formatAmount(btn.dataset.amt);
+      }
+      buildUpiArtifacts();
+    }
+
+    amtBtns.forEach(btn => btn.addEventListener('click', () => setActiveAmount(btn)));
+    customAmtInput.addEventListener('input', buildUpiArtifacts);
+    upiIdInput.addEventListener('input', buildUpiArtifacts);
+    upiNoteInput.addEventListener('input', buildUpiArtifacts);
+    refreshQrBtn.addEventListener('click', (e) => { e.preventDefault(); buildUpiArtifacts(true); });
+
+    function buildUpiUrl() {
+      const pa = encodeURIComponent(upiIdInput.value.trim());
+      const pn = encodeURIComponent((donorName.value || 'Donor').trim());
+      const tn = encodeURIComponent(upiNoteInput.value.trim());
+      const am = encodeURIComponent(getAmount());
+      const cu = 'INR';
+      // UPI deep link format
+      return `upi://pay?pa=${pa}&pn=${pn}&tn=${tn}&am=${am}&cu=${cu}`;
+    }
+
+    function buildUpiArtifacts(force = false) {
+      const url = buildUpiUrl();
+      upiIntentLink.href = url;
+      upiIntentLink.setAttribute('target', '_self');
+      // regenerate QR
+      if (force || !qrContainer.hasChildNodes()) {
+        qrContainer.innerHTML = '';
+        new QRCode(qrContainer, {
+          text: url,
+          width: 220,
+          height: 220,
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      } else {
+        // Replace existing QR by re-rendering
+        qrContainer.innerHTML = '';
+        new QRCode(qrContainer, {
+          text: url,
+          width: 220,
+          height: 220,
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+    }
+
+    // initialize UI
+    setActiveAmount(amtBtns[1]); // highlight ₹500 by default
+    buildUpiArtifacts(true);
+
+    // ---- Razorpay Checkout (optional) ----
+    rzpDonateBtn.addEventListener('click', function() {
+      const key = rzpKeyInput.value.trim();
+      if (!key) {
+        alert('Enter your Razorpay Key ID first.');
+        return;
+      }
+      if (!consent.checked) {
+        alert('Please check the consent box to proceed.');
+        return;
+      }
+
+      const amt = getAmount();
+      const options = {
+        key: key,
+        amount: amt * 100, // in paise
+        currency: 'INR',
+        name: 'Jeeva',
+        description: 'Donation',
+        image: '',
+        // NOTE: For production, generate an order on your server and set order_id here.
+        // order_id: 'order_XXXXXXXXXXXX',
+        prefill: {
+          name: donorName.value || 'Donor',
+          email: donorEmail.value || '',
+          contact: donorPhone.value || ''
+        },
+        notes: {
+          purpose: 'Donation',
+        },
+        theme: { color: '#111827' },
+        handler: function (response){
+          // This runs after a successful payment
+          // You should verify the payment on your server using response.razorpay_payment_id
+          alert('Thank you! Payment ID: ' + response.razorpay_payment_id);
+        },
+        modal: {
+          ondismiss: function() {
+            console.log('Checkout closed.');
+          }
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    });
+  </script>
+
+  <!-- Implementation notes:
+  1) UPI-only version works fully client-side. Replace the sample UPI ID with your real VPA.
+  2) Razorpay: For best reliability, create an Order on your server (amount, currency=INR), then pass its order_id to options. See: https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/
+  3) To embed this page in your site, drop this file as donate.html and link to it from your nav.
+  4) If you need recurring donations, use Razorpay Subscriptions or display a monthly UPI mandate link.
+  -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    footer {
+      background-color: #dce4ad; /* Purple background */
+      color: rgb(2, 2, 2);
+      padding: 30px 50px;
+      position: relative;
+    }
+    footer a {
+      color: #050505;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .footer-left {
+      max-width: 400px;
+    }
+    .footer-left p {
+      margin: 6px 0;
+    }
+    .footer-right {
+      text-align: right;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(10, 10, 10, 0.3);
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 Jeeva. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+        <a href="get-involved.html">Newsletter</a>
+      </div>
+    </div>
+  </footer>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>JEEVA Office:</h3>
+        <p>Jeeva, No-8, Tom Villa,Sweet Water Well Road, RMV 2nd stage post,Nagashettyhalli,Bengaluru - 560094, Karnataka, INDIA.</p>
+           Phone: <a href="tel:+919008376679">+919008376679, Email: <a href="mailto:jeevabng@gmail.com">jeevabng@gmail.com</a></p>
+      </div>
+
+      <div class="footer-top">
+        <h3><a href="#">Follow Us</a></h3>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        </div>
+        <p>Please click here <a href="#">Credits</a> for image attributions.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Powered by Autobot</p>
+      <p>For a life of peace and freedom of expression <strong>Jeeva</strong></p>
+    </div>
+  </footer>
+
+</body>
+</html>

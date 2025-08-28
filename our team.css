@@ -1,0 +1,158 @@
+:root{
+  --overlay-bg: rgba(18,18,20,0.7);
+  --modal-bg: #fff;
+  --accent: #12233a;
+  --muted: #9b9b9b;
+  --max-width: 1200px;
+  --gap: 32px;
+  --radius: 6px;
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Reset-ish */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#2b2542 0%, #1b1630 100%);
+  color:#222;
+}
+
+/* simple demo page */
+main{
+  padding:48px;
+  display:flex;
+  justify-content:center;
+}
+.btn{
+  padding:12px 18px;
+  background:#fff;
+  border:0;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  cursor:pointer;
+}
+
+/* overlay and modal */
+.hidden{display:none}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--overlay-bg);
+  z-index:1000;
+  padding:32px;
+}
+
+/* modal box */
+.modal{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--modal-bg);
+  border-radius:6px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  position:relative;
+  overflow:visible;
+}
+
+/* close button */
+.modal-close{
+  position:absolute;
+  right:18px;
+  top:14px;
+  border:0;
+  background:transparent;
+  font-size:36px;
+  line-height:1;
+  color:var(--accent);
+  cursor:pointer;
+  padding:6px;
+  border-radius:6px;
+}
+.modal-close:hover{transform:rotate(15deg)}
+
+/* layout inside modal */
+.modal-inner{
+  display:flex;
+  gap:var(--gap);
+  padding:36px;
+  align-items:flex-start;
+}
+
+/* left column (image) */
+.modal-left{
+  flex: 0 0 320px; /* fixed-ish width */
+  max-width:320px;
+}
+.modal-left img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:2px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.12);
+  object-fit:cover;
+}
+
+/* right column (content) */
+.modal-right{
+  flex:1 1 0;
+  min-width:0; /* important for text truncation/scrolling */
+  display:flex;
+  flex-direction:column;
+}
+
+/* name & role */
+.member-name{
+  margin:0 0 6px 0;
+  font-size:28px;
+  color:var(--accent);
+  font-weight:700;
+}
+.member-role{
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+/* bio area — make it scrollable if long */
+.member-bio{
+  color:#666;
+  line-height:1.8;
+  font-size:16px;
+  max-height:360px; /* adjust as needed */
+  overflow:auto;
+  padding-right:12px; /* space for scrollbar */
+}
+
+/* custom scrollbar - WebKit */
+.member-bio::-webkit-scrollbar{width:8px}
+.member-bio::-webkit-scrollbar-track{background:transparent}
+.member-bio::-webkit-scrollbar-thumb{
+  background:linear-gradient(#dcdcdc,#bfbfbf);
+  border-radius:8px;
+  border:2px solid rgba(255,255,255,0);
+  background-clip:padding-box;
+}
+
+/* custom scrollbar - Firefox */
+.member-bio{
+  scrollbar-width: thin;
+  scrollbar-color: #bfbfbf transparent;
+}
+
+/* Responsive: on small screens stack columns */
+@media (max-width:880px){
+  .modal-inner{
+    flex-direction:column;
+    gap:20px;
+    padding:22px;
+  }
+  .modal-left{flex:0 0 auto; width:100%}
+  .modal-left img{height:320px; width:100%; object-fit:cover}
+  .member-bio{max-height:260px}
+  .modal{margin:0 12px}
+  .modal-close{right:12px; top:10px}
+}

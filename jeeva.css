@@ -1,0 +1,137 @@
+/* Basic Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: #2d6a4f;
+  color: white;
+  padding: 20px 0;
+}
+.logo {
+  float: left;
+  font-size: 1.8rem;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+.donate-btn {
+  background: #52b788;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 100px;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-forest') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.cta-btn {
+  background: #40916c;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.cta-btn.outline {
+  background: transparent;
+  border: 2px solid white;
+}
+
+/* Programs Section */
+.programs {
+  background: #f1f1f1;
+  padding: 60px 20px;
+}
+.programs h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.program-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Impact Section */
+.impact {
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.impact-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.stat h3 {
+  font-size: 2rem;
+  color: #2d6a4f;
+}
+
+/* CTA Strip */
+.cta-strip {
+  background: #52b788;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: #2d6a4f;
+  color: white;
+  padding: 20px 0;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
